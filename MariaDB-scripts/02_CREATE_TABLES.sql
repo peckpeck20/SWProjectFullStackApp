@@ -1,6 +1,6 @@
 -- (C) 2018 Jose Zapata, Trevor Hurt , Alex Jacobs
 
--- MARIADB = MySQL script
+-- MARIADB = MySQL Create script
 
 CREATE TABLE Member 
 (
@@ -29,7 +29,7 @@ CREATE TABLE Idea
     title           VARCHAR(255)    NOT NULL,
     description     VARCHAR(255)    NOT NULL,
     budget          decimal(12,4)   NOT NULL,
-    readyForComments bit(1)         NOT NULL,
+    readyForComments BIT(1)         NOT NULL,
     peopleNeeded    INTEGER         NOT NULL,
     creationDate    DATE            NOT NULL,
     lastModified    DATETIME        NOT NULL,
@@ -46,13 +46,13 @@ ALTER TABLE Idea AUTO_INCREMENT = 201;
 CREATE TABLE Comment 
 (
     memberId            INTEGER         NOT NULL,
-    ideaId               INTEGER         NOT NULL,
+    ideaId              INTEGER         NOT NULL,
     commentTimeStamp    DATETIME        NOT NULL,
     commentLine         VARCHAR(255)    NOT NULL,
 
     CONSTRAINT pk_Comment PRIMARY KEY(memberId,ideaId,commentTimeStamp),
-
-
+    CONSTRAINT fk_Comment_Member FOREIGN KEY(memberId),
+    CONSTRAINT fk_Comment_Idea FOREIGN KEY(ideaId)
 )
 
 CREATE TABLE MemberIdea 
@@ -61,39 +61,8 @@ CREATE TABLE MemberIdea
     ideaId              INTEGER         NOT NULL,
 
     CONSTRAINT pk_MemberIdea PRIMARY KEY(memberId,ideaId),
-    CONSTRAINT fk_01 FOREIGN KEY(memberId),
-    CONSTRAINT fk_02 FOREIGN KEY(ideaId)
+    CONSTRAINT fk_MemberIdea_Member FOREIGN KEY(memberId),
+    CONSTRAINT fk_MemberIdea_Member FOREIGN KEY(ideaId)
 
 )
 
-
-
-
-
--- --------------------- 2.Industry fields --------------------------------
-
-
-
--- Autoincrement field is NOT given any value in insert (or update) the values are
--- now autoincremented: 201, 202, 203 ... and your test data has to take that into account
-
--- ON DELETE NO ACTION = Cannot delete mother (Category) if (Ideas) exist
--- The second most popular is ON DELETE CASCADE. E.g. when idea deleted,
--- delete also the comments about it
-
-/* Other datatypes and such */
-/* Maybe some old, but anyway how to change from SQL standard datatypes to MySQL/MariaDB */
-
-    -- not MONEY, but:  DECIMAL(19,4)
-	-- not SMALLMONEY, but:   DECIMAL(10,4)
-	-- not VARCHAR(MAX), but:    VARCHAR(20000) OR TEXT
-
-	/*   examples of correct definitions for MariaDB:
-
-	price           DECIMAL(15,2)   NOT NULL,
-    someText        VARCHAR(1000)   NOT NULL,    
-   	maxLongVarChar  VARCHAR(20000) 	NOT NULL,
-  	enabled         TINYINT         NOT NULL DEFAULT 1,    
-	strange_id      INT(11)         NOT NULL AUTO_INCREMENT,
-    
-	*/
