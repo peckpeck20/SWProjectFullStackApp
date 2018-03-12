@@ -1,43 +1,58 @@
--- (C) 2007-2017 - Juhani Välimäki (Toan Khuc, Thu Nghiem)
+-- (C) 2018 Jose Zapata, Trevor Hurt , Alex Jacobs
 
 -- MARIADB = MySQL script
 
--- (USERNAME AND PASSWORD TO LOGIN TO MYSQL)
--- Username: a1xxxxxx  if mariadb.haaga-helia.fi
--- Password: pppppppp
--- (MAKE SURE YOU ALSO CHANGE TO THE a1xxxxx DATABASE IN MYSQL)
---  --------------------------------------------------------------------------
--- (Run in three parts if using Putty connection with small char buffer)
+CREATE TABLE Member 
+(
+    id              INTEGER         NOT NULL     AUTO_INCREMENT,
+    userName            VARCHAR(255)    NOT NULL,
+    email            VARCHAR(400)    NOT NULL,
 
--- --------------------- 1.Tables created in Mother to Child order ---------------------------------------------
+	CONSTRAINT pk_member PRIMARY KEY(id)
+)
 
 CREATE TABLE Category 
 (
     id              INTEGER         NOT NULL     AUTO_INCREMENT,
-    name            VARCHAR(255)    NOT NULL,
+    title           VARCHAR(255)    NOT NULL,
+    budgetLimit     decimal(12,4)   NOT NULL,
+    isActive        BIT(1)          NOT NULL,
 
 	CONSTRAINT pk_category PRIMARY KEY(id)
-) ENGINE=InnoDB;
-ALTER TABLE Category AUTO_INCREMENT = 101;
+)
 
--- --------------------- 2.Industry fields --------------------------------
+ALTER TABLE Category AUTO_INCREMENT = 101;
 
 CREATE TABLE Idea
 (
     id              INTEGER         NOT NULL     AUTO_INCREMENT,
-    name            VARCHAR(255)    NOT NULL,
-    ...             INTEGER         NOT NULL,
-    categoryId      INTEGER         NOT NULL,
+    title           VARCHAR(255)    NOT NULL,
+    description     VARCHAR(m)      NOT NULL,
+    budget          decimal(12,4)   NOT NULL,
+    readyForComments bit(1)         NOT NULL,
+    peopleNeeded    INTEGER         NOT NULL,
+    creationDate    DATE            NOT NULL,
+    lastModified    DATETIME        NOT NULL,
+    categoryId      INTEGER         NOT NULL
 
-    CONSTRAINT pk_industryfield PRIMARY KEY(id),
-    
-    CONSTRAINT ak_idea_name_unique UNIQUE KEY (name),
+    CONSTRAINT pk_Idea PRIMARY KEY(id),
     
     CONSTRAINT fk_idea_category_categoryid FOREIGN KEY (categoryId)
         REFERENCES Category(id)
         ON DELETE NO ACTION
-) ENGINE=InnoDB;
+) 
 ALTER TABLE Idea AUTO_INCREMENT = 201;   
+
+CREATE TABLE Comment 
+()
+
+
+
+
+
+-- --------------------- 2.Industry fields --------------------------------
+
+
 
 -- Autoincrement field is NOT given any value in insert (or update) the values are
 -- now autoincremented: 201, 202, 203 ... and your test data has to take that into account
