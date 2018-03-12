@@ -5,8 +5,8 @@
 CREATE TABLE Member 
 (
     id              INTEGER         NOT NULL     AUTO_INCREMENT,
-    userName            VARCHAR(255)    NOT NULL,
-    email            VARCHAR(400)    NOT NULL,
+    userName        VARCHAR(255)    NOT NULL,
+    email           VARCHAR(400)    NOT NULL,
 
 	CONSTRAINT pk_member PRIMARY KEY(id)
 )
@@ -27,7 +27,7 @@ CREATE TABLE Idea
 (
     id              INTEGER         NOT NULL     AUTO_INCREMENT,
     title           VARCHAR(255)    NOT NULL,
-    description     VARCHAR(m)      NOT NULL,
+    description     VARCHAR(255)    NOT NULL,
     budget          decimal(12,4)   NOT NULL,
     readyForComments bit(1)         NOT NULL,
     peopleNeeded    INTEGER         NOT NULL,
@@ -44,7 +44,27 @@ CREATE TABLE Idea
 ALTER TABLE Idea AUTO_INCREMENT = 201;   
 
 CREATE TABLE Comment 
-()
+(
+    memberId            INTEGER         NOT NULL,
+    ideaId               INTEGER         NOT NULL,
+    commentTimeStamp    DATETIME        NOT NULL,
+    commentLine         VARCHAR(255)    NOT NULL,
+
+    CONSTRAINT pk_Comment PRIMARY KEY(memberId,ideaId,commentTimeStamp),
+
+
+)
+
+CREATE TABLE MemberIdea 
+(
+    memberId            INTEGER         NOT NULL,
+    ideaId              INTEGER         NOT NULL,
+
+    CONSTRAINT pk_MemberIdea PRIMARY KEY(memberId,ideaId),
+    CONSTRAINT fk_01 FOREIGN KEY(memberId),
+    CONSTRAINT fk_02 FOREIGN KEY(ideaId)
+
+)
 
 
 
