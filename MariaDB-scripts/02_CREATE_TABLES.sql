@@ -9,7 +9,7 @@ CREATE TABLE Member
     email           VARCHAR(400)    NOT NULL,
 
 	CONSTRAINT pk_member PRIMARY KEY(id)
-)
+);
 
 CREATE TABLE Category 
 (
@@ -19,7 +19,7 @@ CREATE TABLE Category
     isActive        BIT(1)          NOT NULL,
 
 	CONSTRAINT pk_category PRIMARY KEY(id)
-)
+);
 
 ALTER TABLE Category AUTO_INCREMENT = 101;
 
@@ -40,7 +40,8 @@ CREATE TABLE Idea
     CONSTRAINT fk_idea_category_categoryid FOREIGN KEY (categoryId)
         REFERENCES Category(id)
         ON DELETE NO ACTION
-) 
+);
+
 ALTER TABLE Idea AUTO_INCREMENT = 501;   
 
 CREATE TABLE Comment 
@@ -57,8 +58,8 @@ CREATE TABLE Comment
     CONSTRAINT fk_Comment_Idea FOREIGN KEY (ideaId)
     REFERENCES Idea(id)
     ON DELETE NO ACTION
-)
-ALTER TABLE Comment AUTO_INCREMENT = 1001;  
+);
+-- ALTER TABLE Comment AUTO_INCREMENT = 1001;  
 
 
 CREATE TABLE MemberIdea 
@@ -73,6 +74,7 @@ CREATE TABLE MemberIdea
     CONSTRAINT fk_MemberIdea_Idea FOREIGN KEY(ideaId)
     REFERENCES Idea(id)
     ON DELETE NO ACTION
-)
-ALTER TABLE MemberIdea AUTO_INCREMENT = 1501; 
+);
+
+-- ALTER TABLE MemberIdea AUTO_INCREMENT = 1501; 
 
