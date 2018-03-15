@@ -60,4 +60,27 @@ router.post('/multiInsert/', function(req,res) {
 
 });
 
+router.post('/delete/', function(req,res) {
+    let row = "title";
+    if(req.body.title)
+    {
+      db.del().from("Category").where(row, req.body.title).then( (data) => {
+        console.log(data);
+        // res.send is apparently deprecated, use res.sendStatus
+        res.sendStatus(200);
+        res.sendStatus(data);
+      })
+      .catch((error) => {
+        res.sendStatus(409);
+        console.error(error);
+        res.end(JSON.stringify({"error": "horror"}));
+      });
+    }
+    else
+    {
+      res.sendStatus(400);
+      res.end(JSON.stringify({"error": "horror"}));
+    }
+  });
+
 module.exports = router;
