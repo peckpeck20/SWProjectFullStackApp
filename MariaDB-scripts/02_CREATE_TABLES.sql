@@ -33,7 +33,7 @@ CREATE TABLE Idea
     peopleNeeded    INTEGER         NOT NULL,
     creationDate    DATE            NOT NULL,
     lastModified    DATETIME        NOT NULL,
-    categoryId      INTEGER         NOT NULL
+    categoryId      INTEGER         NOT NULL,
 
     CONSTRAINT pk_Idea PRIMARY KEY(id),
     
@@ -41,7 +41,7 @@ CREATE TABLE Idea
         REFERENCES Category(id)
         ON DELETE NO ACTION
 ) 
-ALTER TABLE Idea AUTO_INCREMENT = 201;   
+ALTER TABLE Idea AUTO_INCREMENT = 501;   
 
 CREATE TABLE Comment 
 (
@@ -51,9 +51,15 @@ CREATE TABLE Comment
     commentLine         VARCHAR(255)    NOT NULL,
 
     CONSTRAINT pk_Comment PRIMARY KEY(memberId,ideaId,commentTimeStamp),
-    CONSTRAINT fk_Comment_Member FOREIGN KEY(memberId),
-    CONSTRAINT fk_Comment_Idea FOREIGN KEY(ideaId)
+    CONSTRAINT fk_Comment_Member FOREIGN KEY (memberId)
+    REFERENCES Member(id)
+    ON DELETE NO ACTION,
+    CONSTRAINT fk_Comment_Idea FOREIGN KEY (ideaId)
+    REFERENCES Idea(id)
+    ON DELETE NO ACTION
 )
+ALTER TABLE Comment AUTO_INCREMENT = 1001;  
+
 
 CREATE TABLE MemberIdea 
 (
@@ -61,8 +67,12 @@ CREATE TABLE MemberIdea
     ideaId              INTEGER         NOT NULL,
 
     CONSTRAINT pk_MemberIdea PRIMARY KEY(memberId,ideaId),
-    CONSTRAINT fk_MemberIdea_Member FOREIGN KEY(memberId),
-    CONSTRAINT fk_MemberIdea_Member FOREIGN KEY(ideaId)
-
+    CONSTRAINT fk_MemberIdea_Member FOREIGN KEY(memberId)
+    REFERENCES Member(id)
+    ON DELETE NO ACTION,
+    CONSTRAINT fk_MemberIdea_Idea FOREIGN KEY(ideaId)
+    REFERENCES Idea(id)
+    ON DELETE NO ACTION
 )
+ALTER TABLE MemberIdea AUTO_INCREMENT = 1501; 
 
