@@ -4,7 +4,7 @@ INSERT INTO Member
 	("Peck", "Peck@h.fi"),
 	("Fluff", "Fluff@h.fi"),
 	("TDogg", "T@h.fi"),
-	("asnf", "fjndskjfsnf@asjdnsa.fi")
+	("asnf", "fjndskjfsnf@asjdnsa.fi");
 
 INSERT INTO Category 
 (title, budgetLimit, isActive) 
@@ -12,7 +12,7 @@ INSERT INTO Category
 ("Nioh is an awesome game to play.", 2198.9872, 1),
 ("Pencil is a great tool for writing.", 2132.9872, 0),
 ("Potatoes are a very nice vegetable to eat.", 123.9872, 0),
-("Tomatoes are red versions of potatoes.", 98723.8659, 1));
+("Tomatoes are red versions of potatoes.", 98723.8659, 1);
 
 INSERT INTO Idea
 (title, description, budget, readyForComments, peopleNeeded, creationDate, lastModified, categoryId) 
@@ -29,7 +29,7 @@ INSERT INTO Comment
 	(1, 501, "2012-04-19 13:08:22", "Comment line 1"),
 	(4, 501, "2012-04-19 13:08:22", "Comment line 1"),
 	(2, 503, "2012-04-19 13:08:22", "Comment line 1"),
-	(2, 504, "2012-04-19 13:08:22", "Comment line 1")
+	(2, 504, "2012-04-19 13:08:22", "Comment line 1");
 
 INSERT INTO MemberIdea
 (memberId, ideaId)
@@ -37,4 +37,4 @@ INSERT INTO MemberIdea
 	(1, 501),
 	(1, 502),
 	(2, 501),
-	(1, 502),
+	(1, 504);
