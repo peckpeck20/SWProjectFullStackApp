@@ -2,15 +2,6 @@
 
 -- MARIADB = MySQL Create script
 
-CREATE TABLE Member 
-(
-    id              INTEGER         NOT NULL     AUTO_INCREMENT,
-    userName        VARCHAR(255)    NOT NULL,
-    email           VARCHAR(400)    NOT NULL,
-
-	CONSTRAINT pk_member PRIMARY KEY(id)
-);
-
 CREATE TABLE Category 
 (
     id              INTEGER         NOT NULL     AUTO_INCREMENT,
@@ -22,6 +13,7 @@ CREATE TABLE Category
 );
 
 ALTER TABLE Category AUTO_INCREMENT = 101;
+
 
 CREATE TABLE Idea
 (
@@ -36,6 +28,7 @@ CREATE TABLE Idea
     categoryId      INTEGER         NOT NULL,
 
     CONSTRAINT pk_Idea PRIMARY KEY(id),
+    CONSTRAINT unique_Idea_Title UNIQUE (title),
     
     CONSTRAINT fk_idea_category_categoryid FOREIGN KEY (categoryId)
         REFERENCES Category(id)
@@ -43,6 +36,21 @@ CREATE TABLE Idea
 );
 
 ALTER TABLE Idea AUTO_INCREMENT = 501;   
+
+
+CREATE TABLE Member 
+(
+    id              INTEGER         NOT NULL     AUTO_INCREMENT,
+    userName        VARCHAR(255)    NOT NULL,
+    email           VARCHAR(255)    NOT NULL,
+
+	CONSTRAINT pk_member PRIMARY KEY(id),
+    CONSTRAINT unique_Member_userName UNIQUE (userName),
+    CONSTRAINT unique_Member_emailAddress UNIQUE (email)
+ 
+);
+
+
 
 CREATE TABLE Comment 
 (
