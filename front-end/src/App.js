@@ -1,18 +1,22 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
-import { Router, BrowserRouter, Link, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
 import "./App.css";
-import IdeaIndex from "./components/ideaIndex";
-import IdeaNew from "./components/ideaNew";
-import IdeaShow from "./components/ideaShow";
-import IdeaEdit from "./components/ideaEdit";
+import IdeaIndex from "./components/IdeaIndex";
+import IdeaNew from "./components/IdeaNew";
+import IdeaShow from "./components/IdeaShow";
+import IdeaEdit from "./components/IdeaEdit";
 
 class App extends Component {
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <div className="background">
           <div className="content-wrapper">
+            <Link to="/">Home</Link>{' '}
+            <Link to="/ideas/new">New Idea</Link>{' '}
+            <Link to="/ideas/:id">Ideas by ID</Link>{' '}
+            <Link to="/edit">Edit</Link>{' '}
             <Switch>
               <Route exact path="/" component={IdeaIndex} />
               <Route path="/ideas/new" component={IdeaNew} />
@@ -21,7 +25,7 @@ class App extends Component {
             </Switch>
           </div>
         </div>
-      </Router>
+      </BrowserRouter>
     );
   }
 }
