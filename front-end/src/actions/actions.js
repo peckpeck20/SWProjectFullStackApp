@@ -8,7 +8,7 @@ export const IDEA_CREATE = "idea_create";
 export const IDEA_UPDATE = "idea_update";
 export const IDEA_DELETE = "idea_delete";
 
-const ROOT_URL = 'localhost:8000/api';
+const ROOT_URL = 'http://localhost:8000/api';
 
 function receiveData(request, json) {
   return {

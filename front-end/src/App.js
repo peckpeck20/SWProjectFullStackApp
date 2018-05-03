@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
 import "./App.css";
-import IdeaIndex from "./components/IdeaIndex";
+import IdeaIndex from "./components/idea_index";
 import IdeaNew from "./components/IdeaNew";
 import IdeaShow from "./components/IdeaShow";
 import IdeaEdit from "./components/IdeaEdit";
