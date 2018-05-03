@@ -78,68 +78,21 @@ class IdeaIndex extends Component {
 
     if(this.props.ideaList === undefined) {
       ideaTable =
-        <tr>
-          <td></td>
-          <td>Loading...</td>
-          <td></td>
-        </tr>
+          <div>Loading...</div>
       ;
     } else {
       ideaTable = this.listIdeas();
     }
-    const data = this.props.ideaList;
-    const columns = [
-      {
-        Header: "ID",
-        accessor: "id",
-        filterable: true
-      },
-      {
-        Header: "Title",
-        accessor: "title",
-        filterable: true
-      },
-      {
-        Header: "Description",
-        accessor: "description",
-        filterable: true
-      },
-      {
-        Header: "Budget",
-        accessor: "budget",
-        filterable: true
-      },
-      {
-        Header: "People Needed",
-        accessor: "peopleNeeded",
-        filterable: true
-      },
-      {
-        Header: "Creation Date",
-        accessor: "creationDate",
-        filterable: true
-      },
-      {
-        Header: "Last Modified",
-        accessor: "lastModified",
-        filterable: true
-      },
-      {
-        Header: "Category ID",
-        accessor: "categoryId",
-        filterable: true
-      }
-    ];
     return (
       <div className="container">
-
+        {ideaTable}
       </div>
     );
   }
 }
 
 IdeaIndex.propTypes = {
-  ideaList: PropTypes.array.isRequired
+  ideaList: PropTypes.array
 };
 
 const mapStateToProps = (state) => {
