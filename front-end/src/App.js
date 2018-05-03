@@ -6,6 +6,7 @@ import IdeaIndex from "./components/IdeaIndex";
 import IdeaNew from "./components/IdeaNew";
 import IdeaShow from "./components/IdeaShow";
 import IdeaEdit from "./components/IdeaEdit";
+import reducers from "./reducers/index"
 
 class App extends Component {
   render() {
