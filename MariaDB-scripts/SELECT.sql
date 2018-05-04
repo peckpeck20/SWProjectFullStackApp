@@ -1,6 +1,5 @@
---TEST STATEMENTS
--- (C) 2018 Jose Zapata, Trevor Hurt , Alex Jacobs
-SELECT * FROM  Comment;
+
+USE a1603191;
 
 SELECT * FROM  Comment;
 
