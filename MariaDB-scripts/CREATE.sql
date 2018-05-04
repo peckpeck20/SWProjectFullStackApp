@@ -32,7 +32,7 @@ CREATE TABLE Idea
     
     CONSTRAINT fk_idea_category_categoryid FOREIGN KEY (categoryId)
         REFERENCES Category(id)
-        ON DELETE NO ACTION
+        ON DELETE CASCADE
 );
 
 ALTER TABLE Idea AUTO_INCREMENT = 501;   
@@ -65,7 +65,7 @@ CREATE TABLE Comment
     ON DELETE CASCADE,
     CONSTRAINT fk_Comment_Idea FOREIGN KEY (ideaId)
     REFERENCES Idea(id)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
 );
 -- ALTER TABLE Comment AUTO_INCREMENT = 1001;  
 
@@ -78,10 +78,10 @@ CREATE TABLE MemberIdea
     CONSTRAINT pk_MemberIdea PRIMARY KEY(memberId,ideaId),
     CONSTRAINT fk_MemberIdea_Member FOREIGN KEY(memberId)
     REFERENCES Member(id)
-    ON DELETE NO ACTION,
+    ON DELETE CASCADE,
     CONSTRAINT fk_MemberIdea_Idea FOREIGN KEY(ideaId)
     REFERENCES Idea(id)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
 );
 
 -- ALTER TABLE MemberIdea AUTO_INCREMENT = 1501; 
