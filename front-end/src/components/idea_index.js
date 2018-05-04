@@ -22,7 +22,7 @@ class IdeaIndex extends Component {
     if(ideaList === undefined){
       return '';
     } else {
-      const listAllIdeas = <ReactTable
+      return (<ReactTable
         data={ideaList}
         columns={[
           {
@@ -68,10 +68,9 @@ class IdeaIndex extends Component {
         ]}
         minRows={1}
         className="-striped -highlight"
-      />
-      return listAllIdeas;
+      />)
     }
-  }
+  };
 
   render() {
     let ideaTable;

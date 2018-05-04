@@ -2,10 +2,8 @@
 import axios from "axios";
 
 export const GET_ALL_IDEAS = "get_all_ideas";
-export const GET_IDEA = "idea_get";
 export const GET_ALL_COMMENTS = "get_all_comments";
 export const IDEA_CREATE = "idea_create";
-export const IDEA_UPDATE = "idea_update";
 export const IDEA_DELETE = "idea_delete";
 
 const ROOT_URL = 'http://localhost:8000/api';
@@ -21,7 +19,7 @@ export function getAllIdeas(dispatch) {
   return axios.get(`${ROOT_URL}/idea`).then((response) => dispatch(receiveData(GET_ALL_IDEAS, response.data)));
 }
 
-export function getAllComments(id, dispatch) {
+export function getAllComments(dispatch) {
   return axios.get(`${ROOT_URL}/comment`).then((response) => dispatch(receiveData(GET_ALL_COMMENTS, response.data)));
 }
 
