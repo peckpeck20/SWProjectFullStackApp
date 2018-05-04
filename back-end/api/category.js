@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
     .from("Category")
     .then((data) => {
       console.log(data);
-      res.status(200);
+      //res.status(200);
       res.send(data);
     });
 });
@@ -27,16 +27,16 @@ router.post("/", (req, res) => {
       .into("Category")
       .then((data) => {
         console.log(data);
-        res.status(200);
+        //res.status(200);
         res.send(data);
       })
       .catch((error) => {
-        res.status(409);
+        //res.status(409);
         console.error(error);
         res.end(JSON.stringify({ error: "catastrophy" }));
       });
   } else {
-    res.status(400);
+    //res.status(400);
     res.end(JSON.stringify({ error: "horror" }));
   }
 });
@@ -48,28 +48,27 @@ router.post("/multiInsert/", (req, res) => {
     .into("Category")
     .then((data) => {
       console.log(data);
-      res.status(200);
+      //res.status(200);
       res.send(data);
     })
     .catch((error) => {
-      res.status(409);
+      //res.status(409);
       console.error(error);
       res.end(JSON.stringify({ error: "catastrophy" }));
     });
 });
 
-router.post("/delete/", (req, res) => {
-  let row = "id";
-  if (req.body.id) {
+router.delete("/delete/:id", (req, res) => {
+  if (req.params.id) {
     db
       .del()
       .from("Category")
-      .where(row, req.body.id)
+      .where('id', req.params.id)
       .then((data) => {
         console.log(data);
         // res.send is apparently deprecated, use res.sendStatus
         res.sendStatus(200);
-        res.sendStatus(data);
+        res.send(data);
       })
       .catch((error) => {
         res.sendStatus(409);

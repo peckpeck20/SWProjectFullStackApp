@@ -8,8 +8,8 @@ router.get("/", (req, res) => {
     .from("Idea")
     .then((data) => {
       console.log(data);
-      res.status(200);
       res.send(data);
+      res.sendStatus(200);
     });
 });
 
@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
     req.body.peopleNeeded &&
     req.body.creationDate &&
     req.body.lastModified &&
-    req.body.categoryIdea
+    req.body.categoryId
   ) {
     db
       .insert(req.body)
@@ -30,16 +30,16 @@ router.post("/", (req, res) => {
       .into("Idea")
       .then((data) => {
         console.log(data);
-        res.status(200);
+        res.sendStatus(200);
         res.send(data);
       })
       .catch((error) => {
-        res.status(409);
+        res.sendStatus(409);
         console.error(error);
         res.end(JSON.stringify({ error: "catastrophy" }));
       });
   } else {
-    res.status(400);
+    res.sendStatus(400);
     res.end(JSON.stringify({ error: "horror" }));
   }
 });
@@ -51,27 +51,26 @@ router.post("/multiInsert/", (req, res) => {
     .into("Idea")
     .then((data) => {
       console.log(data);
-      res.status(200);
-      res.send(data);
+      res.sendStatus(200);
+      res.sendStatus(data);
     })
     .catch((error) => {
-      res.status(409);
+      res.sendStatus(409);
       console.error(error);
       res.end(JSON.stringify({ error: "catastrophy" }));
     });
 });
 
-router.post("/delete/", (req, res) => {
-  let row = "id";
-  if (req.body.id) {
+router.delete("/delete/:id", (req, res) => {
+  if (req.params.id) {
     db
       .del()
       .from("Idea")
-      .where(row, req.body.id)
+      .where('id', req.params.id)
       .then((data) => {
         console.log(data);
         res.sendStatus(200);
-        res.sendStatus(data);
+        res.send(data);
       })
       .catch((error) => {
         res.sendStatus(409);

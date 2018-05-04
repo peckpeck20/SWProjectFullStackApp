@@ -52,13 +52,12 @@ router.post("/multiInsert/", (req, res) => {
     });
 });
 
-router.post("/delete/", (req, res) => {
-  let row = "id";
-  if (req.body.id) {
+router.delete("/delete/:id", (req, res) => {
+  if (req.params.id) {
     db
       .del()
       .from("Member")
-      .where(row, req.body.id)
+      .where("id", req.params.id)
       .then((data) => {
         console.log(data);
         res.sendStatus(200);

@@ -58,18 +58,17 @@ router.post("/multiInsert/", (req, res) => {
     });
 });
 
-router.post("/delete/", (req, res) => {
-  let row = "id";
-  if (req.body.id) {
+router.delete("/delete/:id", (req, res) => {
+  if (req.params.id) {
     db
       .del()
       .from("Comment")
-      .where(row, req.body.id)
+      .where("id", req.params.id)
       .then((data) => {
         console.log(data);
         // res.send is apparently deprecated, use res.sendStatus
         res.sendStatus(200);
-        res.sendStatus(data);
+        res.send(data);
       })
       .catch((error) => {
         res.sendStatus(409);
