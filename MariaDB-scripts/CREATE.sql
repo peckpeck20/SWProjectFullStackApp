@@ -62,7 +62,7 @@ CREATE TABLE Comment
     CONSTRAINT pk_Comment PRIMARY KEY(memberId,ideaId,commentTimeStamp),
     CONSTRAINT fk_Comment_Member FOREIGN KEY (memberId)
     REFERENCES Member(id)
-    ON DELETE NO ACTION,
+    ON DELETE CASCADE,
     CONSTRAINT fk_Comment_Idea FOREIGN KEY (ideaId)
     REFERENCES Idea(id)
     ON DELETE NO ACTION
