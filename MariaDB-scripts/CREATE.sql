@@ -54,12 +54,13 @@ CREATE TABLE Member
 
 CREATE TABLE Comment 
 (
+    id              INTEGER         NOT NULL     AUTO_INCREMENT,
     memberId            INTEGER         NOT NULL,
     ideaId              INTEGER         NOT NULL,
     commentTimeStamp    DATETIME        NOT NULL,
     commentLine         VARCHAR(255)    NOT NULL,
 
-    CONSTRAINT pk_Comment PRIMARY KEY(memberId,ideaId,commentTimeStamp),
+    CONSTRAINT pk_Comment PRIMARY KEY(id,memberId,ideaId,commentTimeStamp),
     CONSTRAINT fk_Comment_Member FOREIGN KEY (memberId)
     REFERENCES Member(id)
     ON DELETE CASCADE,
@@ -67,15 +68,16 @@ CREATE TABLE Comment
     REFERENCES Idea(id)
     ON DELETE CASCADE
 );
--- ALTER TABLE Comment AUTO_INCREMENT = 1001;  
+ ALTER TABLE Comment AUTO_INCREMENT = 1001;  
 
 
 CREATE TABLE MemberIdea 
 (
+    id              INTEGER         NOT NULL     AUTO_INCREMENT,
     memberId            INTEGER         NOT NULL,
     ideaId              INTEGER         NOT NULL,
 
-    CONSTRAINT pk_MemberIdea PRIMARY KEY(memberId,ideaId),
+    CONSTRAINT pk_MemberIdea PRIMARY KEY(id,memberId,ideaId),
     CONSTRAINT fk_MemberIdea_Member FOREIGN KEY(memberId)
     REFERENCES Member(id)
     ON DELETE CASCADE,
@@ -84,5 +86,5 @@ CREATE TABLE MemberIdea
     ON DELETE CASCADE
 );
 
--- ALTER TABLE MemberIdea AUTO_INCREMENT = 1501; 
+ ALTER TABLE MemberIdea AUTO_INCREMENT = 1501; 
 
