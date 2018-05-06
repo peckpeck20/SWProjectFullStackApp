@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  if (req.body.id && req.body.userName && req.body.email) {
+  if (req.body.userName && req.body.email) {
     db
       .insert(req.body)
       .returning("*")

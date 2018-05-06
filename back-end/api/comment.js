@@ -17,7 +17,7 @@ router.post("/", (req, res) => {
   if (
     req.body.memberId &&
     req.body.ideaId &&
-    req.body.commentTimeSleep &&
+    req.body.commentTimeStamp &&
     req.body.commentLine
   ) {
     db
