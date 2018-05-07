@@ -32,13 +32,13 @@ class IdeaNew extends Component {
 
     let newIdea = this.state.newIdea;
 
-    console.log(newIdea);
+    // console.log(newIdea);
 
     if (newIdea.title !== '' && newIdea.description !== '' && newIdea.budget !== '' && newIdea.peopleNeeded !== '' && newIdea.categoryId !== '') {
       this
         .props
         .ideaCreate(newIdea);
-      window.location = "/";
+      // window.location = "/";
     } else {
       alert('No field can be empty!');
     }
@@ -109,7 +109,7 @@ class IdeaNew extends Component {
   }
 
   inputChanged = (event) => {
-    console.log(this.state.newIdea);
+    // console.log(this.state.newIdea);
     this.setState({
       newIdea: Object.assign({}, this.state.newIdea, {
         [event.target.name]: event.target.value
@@ -124,4 +124,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
-export default connect(mapDispatchToProps)(IdeaNew);
+export default connect(null, {ideaCreate})(IdeaNew);
