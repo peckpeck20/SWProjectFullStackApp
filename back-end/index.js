@@ -4,13 +4,10 @@ const app = express();
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
@@ -23,4 +20,6 @@ app.get("/", (req, res) => {
   console.log("Things seem to be working!");
 });
 
-app.listen("8000");
+app.listen(8000, function () {
+  console.log('back-end running in port 8000!');
+});

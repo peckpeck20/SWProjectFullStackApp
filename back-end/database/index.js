@@ -9,4 +9,8 @@ const knex = require("knex")({
   }
 });
 
+// joses config const knex = require("knex")({   client: "mysql",   connection:
+// {     host: "localhost",     database: "a1602411",     user: "a1602411",
+// password: "puNAcD57j"   } });
+
 module.exports = knex;
