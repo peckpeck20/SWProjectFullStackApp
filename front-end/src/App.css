@@ -3,11 +3,12 @@
 }
 
 .background {
-  width: 1232px;
-  margin: 0px auto;
+  width: 100%;
+  margin: 0 auto;
   padding-top: 500px;
   background-image: url("./photo/pic.png");
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .container {
@@ -16,9 +17,10 @@
 }
 
 .content-wrapper {
-  width: 960px;
+  width: 1160px;
   margin: 0 auto 0 auto;
   background-color: white;
+  background-position: center;
   
 }
 
