@@ -15,11 +15,11 @@ class App extends Component {
       <BrowserRouter>
         <div className="background">
           <div className="content-wrapper">
-            <Link to="/">Home</Link>
-            <Link to="/comments">Comments</Link>
-            <Link to="/ideas/new">New Idea</Link>
-            <Link to="/ideas/:id">Ideas by ID</Link>
-            <Link to="/edit">Edit</Link>
+            <Link className="topnav" to="/">Home</Link>
+            <Link className="topnav" to="/comments">Comments</Link>
+            <Link className="topnav" to="/ideas/new">New Idea</Link>
+            <Link className="topnav" to="/ideas/:id">Ideas by ID</Link>
+            <Link className="topnav" to="/edit">Edit</Link>
             <Switch>
               <Route exact path="/" component={IdeaIndex}/>
               <Route path="/comments" component={CommentIndex}/>
