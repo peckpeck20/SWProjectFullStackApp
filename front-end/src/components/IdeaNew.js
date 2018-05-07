@@ -5,7 +5,7 @@ import {ideaCreate} from "../actions/actions";
 
 const Style = {
   heading: {
-    margin: '0px 350px 0px 0px'
+    margin: '0px 0px 0px 0px'
   },
   button: {
     margin: '20px 5px'
