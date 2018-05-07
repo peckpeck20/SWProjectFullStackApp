@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import {BrowserRouter, Link, Switch, Route} from "react-router-dom";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import "./App.css";
@@ -7,8 +7,8 @@ import IdeaIndex from "./components/idea_index";
 import IdeaNew from "./components/IdeaNew";
 import IdeaShow from "./components/IdeaShow";
 import IdeaEdit from "./components/IdeaEdit";
-import CommentIndex from "./components/comment_index";
-// import rootReducer from "./reducers/index";
+// import CommentIndex from "./components/comment_index"; import rootReducer
+// from "./reducers/index";
 
 class App extends Component {
   render() {
@@ -36,4 +36,3 @@ class App extends Component {
 }
 
 export default App;
-
