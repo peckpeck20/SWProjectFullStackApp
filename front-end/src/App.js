@@ -1,6 +1,7 @@
 import React, {Component} from "react";
-// import logo from "./logo.svg";
+import logo from "./logo.svg";
 import {BrowserRouter, Link, Switch, Route} from "react-router-dom";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import "./App.css";
 import IdeaIndex from "./components/idea_index";
 import IdeaNew from "./components/IdeaNew";
@@ -12,26 +13,27 @@ import CommentIndex from "./components/comment_index";
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <div className="background">
-          <div className="content-wrapper">
-            <Link className="topnav" to="/">Home</Link>
-            <Link className="topnav" to="/comments">Comments</Link>
-            <Link className="topnav" to="/ideas/new">New Idea</Link>
-            <Link className="topnav" to="/ideas/:id">Ideas by ID</Link>
-            <Link className="topnav" to="/edit">Edit</Link>
-            <Switch>
-              <Route exact path="/" component={IdeaIndex}/>
-              <Route path="/comments" component={CommentIndex}/>
-              <Route path="/ideas/new" component={IdeaNew}/>
-              <Route path="/ideas/:id" component={IdeaShow}/>
-              <Route path="/edit" component={IdeaEdit}/>
-            </Switch>
+      <MuiThemeProvider>
+        <BrowserRouter>
+          <div className="background">
+            <div className="content-wrapper">
+              <Link to="/">Home</Link>{' '}
+              <Link to="/ideas/new">New Idea</Link>{' '}
+              <Link to="/ideas/:id">Ideas by ID</Link>{' '}
+              <Link to="/edit">Edit</Link>{' '}
+              <Switch>
+                <Route exact path="/" component={IdeaIndex}/>
+                <Route path="/ideas/new" component={IdeaNew}/>
+                <Route path="/ideas/:id" component={IdeaShow}/>
+                <Route path="/edit" component={IdeaEdit}/>
+              </Switch>
+            </div>
           </div>
-        </div>
-      </BrowserRouter>
+        </BrowserRouter>
+      </MuiThemeProvider>
     );
   }
 }
 
 export default App;
+
