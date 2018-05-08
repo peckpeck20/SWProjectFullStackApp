@@ -1,3 +1,4 @@
+import axios from "axios";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import "react-confirm-alert/src/react-confirm-alert.css";
@@ -66,7 +67,20 @@ class IdeaIndex extends Component {
               Header: "Category ID",
               accessor: "categoryId",
               filterable: true
-            }
+            },
+            {
+              Header: "Delete",
+              accessor: "id",
+              filterable: false,
+              sortable: false,
+              Cell: ({ value }) => (
+                <button
+                onClick={this.sendDelete(value)}
+                className="btn btn-primary">
+                  Delete
+                </button>
+              )
+},
           ]}
           minRows={1}
           className="-striped -highlight"
@@ -74,6 +88,15 @@ class IdeaIndex extends Component {
       );
     }
   };
+
+  sendDelete = value => {
+    console.log(value)
+    axios.delete("localhost:8000/api/idea/delete/" + value)
+    .then(console.log("Success"))
+    .catch(err => {
+      console.error(err);
+    })
+  }
 
   render() {
     let ideaTable;
