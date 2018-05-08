@@ -1,4 +1,3 @@
-import axios from "axios";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import "react-confirm-alert/src/react-confirm-alert.css";
@@ -75,7 +74,10 @@ class IdeaIndex extends Component {
               sortable: false,
               Cell: ({ value }) => (
                 <button
-                  onClick={() => this.sendDelete(value)}
+                  onClick={() => {
+                    this.props.ideaDelete(value)
+                    .then(() => this.props.getAllIdeas())
+                  }}
                   className="btn btn-primary">
                   Delete
                 </button>
@@ -90,8 +92,8 @@ class IdeaIndex extends Component {
   };
 
   sendDelete = (value) => {
-    this.props.ideaDelete(value)
-  }
+    this.props.ideaDelete(value);
+  };
 
   render() {
     let ideaTable;
