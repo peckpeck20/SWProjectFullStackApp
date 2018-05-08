@@ -24,7 +24,7 @@ class IdeaIndex extends Component {
     } else {
       return (
         <ReactTable
-          style={{height: 315, fontSize: 13}}
+          style={{fontSize: 13}}
           data={ideaList}
           columns={[
             {
@@ -68,7 +68,7 @@ class IdeaIndex extends Component {
               filterable: true
             }
           ]}
-          minRows={10}
+          minRows={1}
           className="-striped -highlight"
         />
       );
