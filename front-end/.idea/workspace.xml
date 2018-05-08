@@ -14,11 +14,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="idea_index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="idea_index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/idea_index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
               <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/App.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="48" lean-forward="true" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#67#0" expanded="true" />
+                <element signature="e#144#214#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -42,6 +73,7 @@
       <find>connect</find>
       <find>ideaList</find>
       <find>getIdea</find>
+      <find>\&lt;div className\=\&quot;background\&quot;\&gt;\n            \&lt;div className\=\&quot;content\-wrapper\&quot;\&gt;\n              \&lt;Link to\=\&quot;\/\&quot;\&gt;Home\&lt;\/Link\&gt;\{\' \'\}\n              \&lt;Link to\=\&quot;\/ideas\/new\&quot;\&gt;New Idea\&lt;\/Link\&gt;\{\' \'\}\n              \&lt;Link to\=\&quot;\/ideas\/\:id\&quot;\&gt;Ideas by ID\&lt;\/Link\&gt;\{\' \'\}\n              \&lt;Link to\=\&quot;\/edit\&quot;\&gt;Edit\&lt;\/Link\&gt;\{\' \'\}\n              \&lt;Switch\&gt;\n                \&lt;Route exact path\=\&quot;\/\&quot; component\=\{IdeaIndex\}\/\&gt;\n                \&lt;Route path\=\&quot;\/ideas\/new\&quot; component\=\{IdeaNew\}\/\&gt;\n                \&lt;Route path\=\&quot;\/ideas\/\:id\&quot; component\=\{IdeaShow\}\/\&gt;\n                \&lt;Route path\=\&quot;\/edit\&quot; component\=\{IdeaEdit\}\/\&gt;\n              \&lt;\/Switch\&gt;\n            \&lt;\/div\&gt;\n          \&lt;\/div\&gt;</find>
     </findStrings>
     <replaceStrings>
       <replace>comment</replace>
@@ -54,16 +86,17 @@
         <option value="$PROJECT_DIR$/src/components/asdasd.js" />
         <option value="$PROJECT_DIR$/src/components/IdeaIndex.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/comment_index.js" />
         <option value="$PROJECT_DIR$/src/reducers/reducerIdea.js" />
         <option value="$PROJECT_DIR$/src/reducers/index.js" />
         <option value="$PROJECT_DIR$/src/reducers/reducerComment.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/actions/actions.js" />
         <option value="$PROJECT_DIR$/src/reducers/index.js" />
-        <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/components/idea_index.js" />
+        <option value="$PROJECT_DIR$/src/index.css" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/App.css" />
       </list>
     </option>
   </component>
@@ -205,7 +238,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26633000" />
+    <option name="totallyTimeSpent" value="27441000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -270,13 +303,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/idea_index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="93" column="4" selection-start-line="93" selection-end-line="93" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/IdeaShow.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -630,17 +656,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.css">
+    <entry file="file://$PROJECT_DIR$/src/components/idea_index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        <state relative-caret-position="54">
+          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        <state relative-caret-position="306">
+          <caret line="18" column="48" lean-forward="true" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
             <element signature="e#144#214#0" expanded="true" />
@@ -648,10 +681,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/idea_index.js">
+    <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+        <state relative-caret-position="374">
+          <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
         </state>
       </provider>
     </entry>
