@@ -1,23 +1,18 @@
 import React from "react";
 import {reduxForm, Field} from "redux-form";
-import {ideaCreate} from "../actions/actions";
-import submit from './RemoteSubmitButton'
+// import {ideaCreate} from "../actions/actions";
 import TextField from "material-ui/TextField";
 import SelectField from "material-ui/SelectField";
 import DatePicker from "material-ui/DatePicker";
 import MenuItem from 'material-ui/MenuItem'
 import RaisedButton from "material-ui/RaisedButton";
-import RemoteSubmitButton from "./RemoteSubmitButton";
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
+
 // import {connect} from "react-redux";
 
 const style = {
     margin: 12
 };
-
-// inputChanged = (event) => {   // console.log(this.state.newIdea);
-// this.setState({     newIdea: Object.assign({}, this.state.newIdea, {
-// [event.target.name]: event.target.value     })   }); } onSubmit = (e) => {
-// e.preventDefault();   this     .props     .ideaCreate(newIdea); }
 
 const renderTextField = ({
     input,
@@ -97,34 +92,53 @@ const renderDatePickerModified = ({
 }}
     children={children}/>)
 
+const renderRadioGroup = ({
+    input,
+    ...rest
+}) => (<RadioButtonGroup
+    {...input}
+    {...rest}
+    valueSelected={input.value}
+    onChange={(event, value) => input.onChange(value)}/>)
+
 const NewIdeaForm = props => {
     const {handleSubmit} = props
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <Field type="text" name="title" label="title" component={renderTextField}/>
-                <Field name="description" label="description" component={renderTextField}/>
-                <Field name="budget" label="budget" component={renderTextField}/>
-                <Field
-                    name="readyForComments"
-                    label="readyForComments"
-                    component={renderTextField}/>
-                <Field name="peopleNeeded" label="peopleNeeded" component={renderTextField}/>
-                <Field name="creationDate" component={renderDatePicker}/>
-                <Field name="lastModified" component={renderDatePickerModified}/>
-                <Field name="categoryId" component={renderSelectField} label="categoryId role">
-                    <MenuItem value="1" primaryText="Normal user"/>
-                    <MenuItem value="doctor" primaryText="doctor"/>
-                    <MenuItem value="nurse" primaryText="nurse"/>
-                    <MenuItem value="developer" primaryText="developer"/>
-                </Field>
+                <div><Field type="text" name="title" label="title" component={renderTextField}/>
+                </div>
+                <div><Field name="description" label="description" component={renderTextField}/>
+                </div>
+                <div><Field name="budget" label="budget" component={renderTextField}/>
+                </div>
+                <div>
+                    <Field
+                        name="readyForComments"
+                        label="readyForComments"
+                        component={renderRadioGroup}>
+                        <RadioButton value="1" label="yes"/>
+                        <RadioButton value="0" label="no"/>
+                    </Field>
+
+                </div>
+                <div><Field name="peopleNeeded" label="peopleNeeded" component={renderTextField}/></div>
+                <div><Field name="creationDate" component={renderDatePicker}/></div>
+                <div><Field name="lastModified" component={renderDatePickerModified}/></div>
+                <div>
+                    <Field name="categoryId" component={renderSelectField} label="categoryId role">
+                        <MenuItem value="101" primaryText="Nioh is an awesome game to play"/>
+                        <MenuItem value="102" primaryText="Pencil is a great tool for writing"/>
+                        <MenuItem value="103" primaryText="Potatoes are a very nice vegetable to eat"/>
+                        <MenuItem value="104" primaryText="Tomatoes are red versions of potatoes"/>
+                    </Field>
+                </div>
                 <div>
                     <RaisedButton type="submit" label="submit" primary={true} style={style}/>
-                    <RaisedButton label="reset" secondary={true} style={style}/> {/* <RemoteSubmitButton/> */}
+                    <RaisedButton label="reset" secondary={true} style={style}/>
                 </div>
             </form>
-
         </div>
     );
 }
@@ -132,6 +146,5 @@ const NewIdeaForm = props => {
 export default reduxForm({
     // a unique name for the form
     form: 'NewIdea',
-    destroyOnUnmount: false,
-    onSubmit: submit
+    //testing purposes destroyOnUnmount: false
 })(NewIdeaForm)
