@@ -32,8 +32,16 @@ export function ideaCreate(newIdea) {
   return {type: IDEA_CREATE, payload: newIdea}
 }
 
+// export function ideaDelete(id, dispatch) {
+//   return axios
+//     .delete(`${ROOT_URL}/idea/${id}`)
+//     .then((response) => dispatch(receiveData(IDEA_DELETE, response.data)));
+// }
 export function ideaDelete(id, dispatch) {
-  return axios
-    .delete(`${ROOT_URL}/idea/${id}`)
-    .then((response) => dispatch(receiveData(IDEA_DELETE, response.data)));
+  return axios.delete(`${ROOT_URL}/idea/delete/${id}`)
+    .then((response) => dispatch(receiveData(IDEA_DELETE, response.data)))
+    .catch(err => {
+      console.error(err)
+    })
+
 }

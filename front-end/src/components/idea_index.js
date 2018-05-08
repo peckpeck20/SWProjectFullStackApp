@@ -5,7 +5,7 @@ import "react-confirm-alert/src/react-confirm-alert.css";
 import { connect } from "react-redux";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-import { getAllIdeas } from "../actions/actions";
+import { getAllIdeas, ideaDelete } from "../actions/actions";
 
 class IdeaIndex extends Component {
   constructor(props) {
@@ -90,16 +90,7 @@ class IdeaIndex extends Component {
   };
 
   sendDelete = (value) => {
-    console.log(value);
-    axios.delete(`http://localhost:8000/api/idea/delete/${value}`)
-    .then(() => {
-      console.log("Success!")
-      this.props.getAllIdeas()
-    })
-    .catch(err => {
-      console.error(err)
-    })
-
+    this.props.ideaDelete(value)
   }
 
   render() {
@@ -124,7 +115,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getAllIdeas: () => getAllIdeas(dispatch)
+    getAllIdeas: () => getAllIdeas(dispatch),
+    ideaDelete: (id) => ideaDelete(id, dispatch)
   };
 };
 

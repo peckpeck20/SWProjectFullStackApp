@@ -1,4 +1,4 @@
-import {GET_ALL_IDEAS, IDEA_CREATE} from "../actions/actions";
+import {GET_ALL_IDEAS, IDEA_CREATE, IDEA_DELETE} from "../actions/actions";
 
 export default function (state = {}, action) {
   switch (action.type) {
@@ -12,6 +12,8 @@ export default function (state = {}, action) {
         ...state,
         newIdea: action.payload
       };
+    case IDEA_DELETE:
+      return state;
     default:
       return state;
   }
