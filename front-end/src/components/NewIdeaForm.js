@@ -1,17 +1,15 @@
-import React from "react";
-import {reduxForm, Field} from "redux-form";
-// import {ideaCreate} from "../actions/actions";
-import TextField from "material-ui/TextField";
-import SelectField from "material-ui/SelectField";
 import DatePicker from "material-ui/DatePicker";
-import MenuItem from 'material-ui/MenuItem'
+import MenuItem from 'material-ui/MenuItem';
+import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import RaisedButton from "material-ui/RaisedButton";
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
-
+import SelectField from "material-ui/SelectField";
+import TextField from "material-ui/TextField";
+import React from "react";
+import { Field, reduxForm } from "redux-form";
 // import {connect} from "react-redux";
 
 const style = {
-    margin: 12
+    margin: 12,
 };
 
 const renderTextField = ({
