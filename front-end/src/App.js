@@ -11,16 +11,17 @@ import IdeaEdit from "./components/IdeaEdit";
 // from "./reducers/index";
 
 class App extends Component {
+
   render() {
     return (
       <MuiThemeProvider>
         <BrowserRouter>
           <div className="background">
             <div className="content-wrapper">
-              <Link to="/">Home</Link>{' '}
-              <Link to="/ideas/new">New Idea</Link>{' '}
-              <Link to="/ideas/:id">Ideas by ID</Link>{' '}
-              <Link to="/edit">Edit</Link>{' '}
+              <Link to="/">Home</Link>
+              <Link to="/ideas/new">New Idea</Link>
+              <Link to="/ideas/:id">Ideas by ID</Link>
+              <Link to="/edit">Edit</Link>
               <Switch>
                 <Route exact path="/" component={IdeaIndex}/>
                 <Route path="/ideas/new" component={IdeaNew}/>
