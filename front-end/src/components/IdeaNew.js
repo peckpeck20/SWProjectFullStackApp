@@ -1,127 +1,139 @@
-import React, {Component} from "react";
-import {Link} from "react-router-dom";
-import {connect} from "react-redux";
+import React from "react";
+import {reduxForm, Field} from "redux-form";
 import {ideaCreate} from "../actions/actions";
+import submit from './RemoteSubmitButton'
+import TextField from "material-ui/TextField";
+import SelectField from "material-ui/SelectField";
+import DatePicker from "material-ui/DatePicker";
+import MenuItem from 'material-ui/MenuItem'
+import RaisedButton from "material-ui/RaisedButton";
+import RemoteSubmitButton from "./RemoteSubmitButton";
+// import {connect} from "react-redux";
 
-const Style = {
-  heading: {
-    margin: '0px 350px 0px 0px'
-  },
-  button: {
-    margin: '20px 5px'
-  }
+const style = {
+    margin: 12
 };
 
-class IdeaNew extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      newIdea: {
-        title: '',
-        description: '',
-        budget: '',
-        readyForComments: "false",
-        peopleNeeded: '',
-        categoryId: ''
-      }
-    }
-  }
+// inputChanged = (event) => {   // console.log(this.state.newIdea);
+// this.setState({     newIdea: Object.assign({}, this.state.newIdea, {
+// [event.target.name]: event.target.value     })   }); } onSubmit = (e) => {
+// e.preventDefault();   this     .props     .ideaCreate(newIdea); }
 
-  onSubmit = (e) => {
-    e.preventDefault();
+const renderTextField = ({
+    input,
+    label,
+    meta: {
+        touched,
+        error
+    },
+    ...custom
+}) => (<TextField
+    hintText={label}
+    floatingLabelText={label}
+    errorText={touched && error}
+    {...input}
+    {...custom}/>)
 
-    let newIdea = this.state.newIdea;
+const renderSelectField = ({
+    input,
+    label,
+    meta: {
+        touched,
+        error
+    },
+    children,
+    ...custom
+}) => (<SelectField
+    floatingLabelText={label}
+    errorText={touched && error}
+    {...input}
+    onChange={(event, index, value) => input.onChange(value)}
+    children={children}
+    {...custom}/>)
 
-    // console.log(newIdea);
+const renderDatePicker = ({
+    input,
+    label,
+    meta: {
+        touched,
+        error
+    },
+    children
+}) => (<DatePicker
+    floatingLabelText={label}
+    errorText={touched && error}
+    {...input}
+    hintText="creationDate"
+    mode="landscape"
+    value={input.value !== ''
+    ? new Date(input.value)
+    : null}
+    onChange={(event, value) => {
+    console.log(value);
+    input.onChange(value)
+}}
+    children={children}/>)
 
-    if (newIdea.title !== '' && newIdea.description !== '' && newIdea.budget !== '' && newIdea.peopleNeeded !== '' && newIdea.categoryId !== '') {
-      this
-        .props
-        .ideaCreate(newIdea);
-      // window.location = "/";
-    } else {
-      alert('No field can be empty!');
-    }
-  };
+const renderDatePickerModified = ({
+    input,
+    label,
+    meta: {
+        touched,
+        error
+    },
+    children
+}) => (<DatePicker
+    floatingLabelText={label}
+    errorText={touched && error}
+    {...input}
+    hintText="dateModified"
+    mode="landscape"
+    value={input.value !== ''
+    ? new Date(input.value)
+    : null}
+    onChange={(event, value) => {
+    console.log(value);
+    input.onChange(value)
+}}
+    children={children}/>)
 
-  render() {
+const IdeaNew = props => {
+    const {ideaCreate, handleSubmit} = props
 
     return (
-      <div className="container">
-        <h3 style={Style.heading}>NEW IDEA</h3>
-        <form onSubmit={this.onSubmit}>
-          <p>Title</p>
-          <input
-            name="title"
-            value={this.state.newIdea.title}
-            onChange={this.inputChanged}/>
-          <p>Description</p>
-          <input
-            name="description"
-            value={this.state.newIdea.description}
-            onChange={this.inputChanged}/>
-          <p>Budget</p>
-          <input
-            type="number"
-            name="budget"
-            value={this.state.newIdea.budget}
-            onChange={this.inputChanged}/>
-          <p>Ready for comment?
-            <span>
-              <select
-                name="readyForComments"
-                value={this.state.newIdea.readyForComments}
-                onChange={this.inputChanged}>
-                <option value="false">No</option>
-                <option value="true">Yes</option>
-              </select>
-            </span>
-          </p>
-          <p>People needed</p>
-          <input
-            type="number"
-            name="peopleNeeded"
-            value={this.state.newIdea.peopleNeeded}
-            onChange={this.inputChanged}/>
-          <p>Category id</p>
-          <input
-            type="number"
-            name="categoryId"
-            value={this.state.newIdea.categoryId}
-            onChange={this.inputChanged}/>
-          <br/>
+        <div>
+            <form onSubmit={handleSubmit}>
+                <Field type="text" name="title" label="title" component={renderTextField}/>
+                <Field name="description" label="description" component={renderTextField}/>
+                <Field name="budget" label="budget" component={renderTextField}/>
+                <Field
+                    name="readyForComments"
+                    label="readyForComments"
+                    component={renderTextField}/>
+                <Field name="peopleNeeded" label="peopleNeeded" component={renderTextField}/>
+                <Field name="creationDate" component={renderDatePicker}/>
+                <Field name="lastModified" component={renderDatePickerModified}/>
+                <Field name="categoryId" component={renderSelectField} label="categoryId role">
+                    <MenuItem value="1" primaryText="Normal user"/>
+                    <MenuItem value="doctor" primaryText="doctor"/>
+                    <MenuItem value="nurse" primaryText="nurse"/>
+                    <MenuItem value="developer" primaryText="developer"/>
+                </Field>
+                <div>
+                    {/* <RaisedButton type="submit" label="submit" primary={true} style={style}/>
+          <RaisedButton label="reset" secondary={true} style={style}/> */}
 
-          <button
-            type="submit"
-            className="button button-edit button-text"
-            style={Style.button}>
-            ADD
-          </button>
+                    <RemoteSubmitButton/>
+                </div>
+            </form>
 
-          <Link to="/">
-            <button className="button button-delete button-text" style={Style.button}>
-              CANCEL
-            </button>
-          </Link>
-        </form>
-      </div>
+        </div>
     );
-  }
-
-  inputChanged = (event) => {
-    // console.log(this.state.newIdea);
-    this.setState({
-      newIdea: Object.assign({}, this.state.newIdea, {
-        [event.target.name]: event.target.value
-      })
-    });
-  }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    ideaCreate: (newIdea) => ideaCreate(newIdea, dispatch)
-  };
-}
-
-export default connect(null, {ideaCreate})(IdeaNew);
+export default reduxForm({
+    // a unique name for the form
+    form: 'IdeaNewForm',
+    destroyOnUnmount: false,
+    onSubmit: submit
+})(IdeaNew)
