@@ -91,9 +91,10 @@ class IdeaIndex extends Component {
 
   sendDelete = (value) => {
     console.log(value);
-    axios.delete("http://localhost:8000/api/idea/delete/" + value)
+    axios.delete(`http://localhost:8000/api/idea/delete/${value}`)
     .then(() => {
       console.log("Success!")
+      this.props.getAllIdeas()
     })
     .catch(err => {
       console.error(err)
