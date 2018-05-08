@@ -133,7 +133,7 @@ const NewIdeaForm = props => {
                     </Field>
                 </div>
                 <div>
-                    <RaisedButton type="submit" label="submit" primary={true} style={style}/>
+                    <RaisedButton type="submit" label="submit" primary={true} style={style} />
                     <RaisedButton label="reset" secondary={true} style={style}/>
                 </div>
             </form>

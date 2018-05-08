@@ -5,12 +5,12 @@ export default function (state = {}, action) {
     case GET_ALL_IDEAS:
       return {
         ...state,
-        ideaList: action.payload
+        ideaList: action.payload,
       };
     case IDEA_CREATE:
       return {
         ...state,
-        newIdea: action.payload
+        newIdea: action.payload,
       };
     case IDEA_DELETE:
       return state;

@@ -29,7 +29,11 @@ export function getAllComments(dispatch) {
 // dispatch(receiveData(IDEA_CREATE, response.data))); }
 
 export function ideaCreate(newIdea) {
-  return {type: IDEA_CREATE, payload: newIdea}
+  return axios.post(`${ROOT_URL}/idea/`, newIdea)
+  .then(() => console.log("success!"))
+  .catch(err => {
+    console.error(err)
+  })
 }
 
 // export function ideaDelete(id, dispatch) {

@@ -112,7 +112,9 @@ IdeaIndex.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  return { ideaList: state.idea.ideaList };
+  return { 
+    ideaList: state.idea.ideaList,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
