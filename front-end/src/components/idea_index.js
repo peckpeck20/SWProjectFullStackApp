@@ -25,7 +25,7 @@ class IdeaIndex extends Component {
     } else {
       return (
         <ReactTable
-          style={{fontSize: 13}}
+          style={{ fontSize: 13 }}
           data={ideaList}
           columns={[
             {
@@ -75,12 +75,12 @@ class IdeaIndex extends Component {
               sortable: false,
               Cell: ({ value }) => (
                 <button
-                onClick={this.sendDelete(value)}
-                className="btn btn-primary">
+                  onClick={() => this.sendDelete(value)}
+                  className="btn btn-primary">
                   Delete
                 </button>
               )
-},
+            }
           ]}
           minRows={1}
           className="-striped -highlight"
@@ -89,13 +89,16 @@ class IdeaIndex extends Component {
     }
   };
 
-  sendDelete = value => {
-    console.log(value)
-    axios.delete("localhost:8000/api/idea/delete/" + value)
-    .then(console.log("Success"))
-    .catch(err => {
-      console.error(err);
+  sendDelete = (value) => {
+    console.log(value);
+    axios.delete("http://localhost:8000/api/idea/delete/" + value)
+    .then(() => {
+      console.log("Success!")
     })
+    .catch(err => {
+      console.error(err)
+    })
+
   }
 
   render() {
