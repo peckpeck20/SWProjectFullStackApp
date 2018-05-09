@@ -30,7 +30,10 @@ export function getAllComments(dispatch) {
 
 export function ideaCreate(newIdea) {
   return axios.post(`${ROOT_URL}/idea/`, newIdea)
-  .then(() => console.log("success!"))
+  .then(() => {
+    console.log("success!");
+    window.location = "/"
+  })
   .catch(err => {
     console.error(err)
   })

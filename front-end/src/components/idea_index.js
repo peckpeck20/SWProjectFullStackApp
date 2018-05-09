@@ -91,10 +91,6 @@ class IdeaIndex extends Component {
     }
   };
 
-  sendDelete = (value) => {
-    this.props.ideaDelete(value);
-  };
-
   render() {
     let ideaTable;
 
