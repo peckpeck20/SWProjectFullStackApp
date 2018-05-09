@@ -75,10 +75,12 @@ class IdeaIndex extends Component {
               Cell: ({ value }) => (
                 <button
                   onClick={() => {
-                    this.props.ideaDelete(value)
-                    .then(() => this.props.getAllIdeas())
+                    this.props
+                      .ideaDelete(value)
+                      .then(() => this.props.getAllIdeas());
                   }}
-                  className="btn btn-primary">
+                  className="btn btn-primary"
+                >
                   Delete
                 </button>
               )
@@ -107,16 +109,16 @@ IdeaIndex.propTypes = {
   ideaList: PropTypes.array
 };
 
-const mapStateToProps = (state) => {
-  return { 
-    ideaList: state.idea.ideaList,
+const mapStateToProps = state => {
+  return {
+    ideaList: state.idea.ideaList
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     getAllIdeas: () => getAllIdeas(dispatch),
-    ideaDelete: (id) => ideaDelete(id, dispatch)
+    ideaDelete: id => ideaDelete(id, dispatch)
   };
 };
 

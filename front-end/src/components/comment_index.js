@@ -19,54 +19,50 @@ class CommentIndex extends Component {
   listComments = () => {
     console.log(this.props.commentList);
     let commentList = this.props.commentList;
-    if(commentList === undefined){
-      return '';
+    if (commentList === undefined) {
+      return "";
     } else {
-      return (<ReactTable
-        data={commentList}
-        columns={[
-          {
-            Header: "Member ID",
-            accessor: "memberId",
-            filterable: true
-          },
-          {
-            Header: "Idea ID",
-            accessor: "ideaId",
-            filterable: true
-          },
-          {
-            Header: "Comment Time",
-            accessor: "commentTimeStamp",
-            filterable: true
-          },
-          {
-            Header: "Comment",
-            accessor: "commentLine",
-            filterable: true
-          }
-        ]}
-        minRows={1}
-        className="-striped -highlight"
-      />)
+      return (
+        <ReactTable
+          data={commentList}
+          columns={[
+            {
+              Header: "Member ID",
+              accessor: "memberId",
+              filterable: true
+            },
+            {
+              Header: "Idea ID",
+              accessor: "ideaId",
+              filterable: true
+            },
+            {
+              Header: "Comment Time",
+              accessor: "commentTimeStamp",
+              filterable: true
+            },
+            {
+              Header: "Comment",
+              accessor: "commentLine",
+              filterable: true
+            }
+          ]}
+          minRows={1}
+          className="-striped -highlight"
+        />
+      );
     }
   };
 
   render() {
     let commentTable;
 
-    if(this.props.commentList === undefined) {
-      commentTable =
-          <div>Loading...</div>
-      ;
+    if (this.props.commentList === undefined) {
+      commentTable = <div>Loading...</div>;
     } else {
       commentTable = this.listComments();
     }
-    return (
-      <div className="container">
-        {commentTable}
-      </div>
-    );
+    return <div className="container">{commentTable}</div>;
   }
 }
 
@@ -74,14 +70,14 @@ CommentIndex.propTypes = {
   commentList: PropTypes.array
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return { commentList: state.comment.commentList };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     getAllComments: () => getAllComments(dispatch)
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps) (CommentIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(CommentIndex);
