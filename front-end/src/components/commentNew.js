@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import NewIdeaForm from "./NewIdeaForm";
+import NewCommentForm from "./NewCommentForm";
 import { connect } from "react-redux";
-import { ideaCreate } from "../actions/actions";
+import { commentCreate } from "../actions/actions";
 
-class IdeaNew extends Component {
+class CommentNew extends Component {
   render() {
     return (
       <div>
-        <NewIdeaForm onSubmit={this.props.ideaCreate} />
+        <NewCommentForm onSubmit={this.props.commentCreate} />
       </div>
     );
   }
@@ -19,8 +19,8 @@ const mapStateToProps = () => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    ideaCreate: newIdea => ideaCreate(newIdea, dispatch)
+    commentCreate: newComment => commentCreate(newComment, dispatch)
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(IdeaNew);
+export default connect(mapStateToProps, mapDispatchToProps)(CommentNew);

@@ -5,6 +5,7 @@ import "./App.css";
 import IdeaNew from "./components/IdeaNew";
 import IdeaIndex from "./components/idea_index";
 import CommentIndex from "./components/comment_index";
+import CommentNew from "./components/CommentNew";
 
 class App extends Component {
   render() {
@@ -14,12 +15,15 @@ class App extends Component {
           <div>
             <div className="background"> </div>
             <div className="content-wrapper">
-              <Link to="/">Home</Link> <Link to="/ideas/new">New Idea</Link>{" "}
+              <Link to="/">Home</Link>{" "}
+              <Link to="/ideas/new">New Idea</Link>{" "}
               <Link to="/comment">Comments</Link>{" "}
+              <Link to="/comments/new">New Comment</Link>{" "}
               <Switch>
                 <Route exact path="/" component={IdeaIndex} />
                 <Route path="/ideas/new" component={IdeaNew} />
                 <Route path="/comment" component={CommentIndex} />
+                <Route path="/comments/new" component={CommentNew} />
               </Switch>
             </div>
           </div>

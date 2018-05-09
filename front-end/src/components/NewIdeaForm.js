@@ -180,7 +180,5 @@ const NewIdeaForm = props => {
 };
 
 export default reduxForm({
-  // a unique name for the form
   form: "NewIdea"
-  //testing purposes destroyOnUnmount: false
 })(NewIdeaForm);

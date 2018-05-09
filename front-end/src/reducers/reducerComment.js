@@ -1,4 +1,4 @@
-import {GET_ALL_COMMENTS, COMMENT_DELETE} from "../actions/actions";
+import {GET_ALL_COMMENTS, COMMENT_DELETE, COMMENT_CREATE} from "../actions/actions";
 
 export default function(state = {}, action) {
   switch (action.type) {
@@ -8,5 +8,10 @@ export default function(state = {}, action) {
       return state;
     case COMMENT_DELETE:
       return state;
+    case COMMENT_CREATE:
+      return {
+        ...state,
+        newIdea: action.payload
+      };
   }
 }
