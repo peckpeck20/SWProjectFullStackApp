@@ -4,6 +4,7 @@ export const GET_ALL_IDEAS = "get_all_ideas";
 export const GET_ALL_COMMENTS = "get_all_comments";
 export const IDEA_CREATE = "idea_create";
 export const IDEA_DELETE = "idea_delete";
+export const COMMENT_DELETE = "comment_delete";
 
 const ROOT_URL = "http://localhost:8000/api";
 
@@ -38,6 +39,15 @@ export function ideaCreate(newIdea) {
 export function ideaDelete(id, dispatch) {
   return axios
     .delete(`${ROOT_URL}/idea/delete/${id}`)
+    .then(response => dispatch(receiveData(IDEA_DELETE, response.data)))
+    .catch(err => {
+      console.error(err);
+    });
+}
+
+export function commentDelete(id, dispatch) {
+  return axios
+    .delete(`${ROOT_URL}/comment/delete/${id}`)
     .then(response => dispatch(receiveData(IDEA_DELETE, response.data)))
     .catch(err => {
       console.error(err);

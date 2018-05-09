@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import "react-confirm-alert/src/react-confirm-alert.css";
-import { getAllComments } from "../actions/actions";
+import {getAllComments, commentDelete} from "../actions/actions";
 
 class CommentIndex extends Component {
   constructor(props) {
@@ -45,6 +45,24 @@ class CommentIndex extends Component {
               Header: "Comment",
               accessor: "commentLine",
               filterable: true
+            },
+            {
+              Header: "Delete",
+              accessor: "id",
+              filterable: false,
+              sortable: false,
+              Cell: ({ value }) => (
+                <button
+                  onClick={() => {
+                    this.props
+                      .commentDelete(value)
+                      .then(() => this.props.getAllComments());
+                  }}
+                  className="btn btn-primary"
+                >
+                  Delete
+                </button>
+              )
             }
           ]}
           minRows={1}
@@ -76,7 +94,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getAllComments: () => getAllComments(dispatch)
+    getAllComments: () => getAllComments(dispatch),
+    commentDelete: id => commentDelete(id, dispatch)
   };
 };
 

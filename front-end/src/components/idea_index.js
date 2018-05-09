@@ -24,7 +24,6 @@ class IdeaIndex extends Component {
     } else {
       return (
         <ReactTable
-          style={{ fontSize: 13 }}
           data={ideaList}
           columns={[
             {
