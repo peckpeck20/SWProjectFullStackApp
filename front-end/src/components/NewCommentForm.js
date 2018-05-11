@@ -41,6 +41,7 @@ const renderDatePicker = ({
       input.onChange(value);
     }}
     children={children}
+    textFieldStyle={{paddingBottom: 30, height: 50}}
   />
 );
 

@@ -61,6 +61,7 @@ const renderDatePicker = ({
       input.onChange(value);
     }}
     children={children}
+    textFieldStyle={{paddingBottom: 30, height: 50}}
   />
 );
 
@@ -82,6 +83,7 @@ const renderDatePickerModified = ({
       input.onChange(value);
     }}
     children={children}
+    textFieldStyle={{paddingBottom: 30, height: 50}}
   />
 );
 
@@ -122,6 +124,7 @@ const NewIdeaForm = props => {
           <Field
             name="readyForComments"
             label="readyForComments"
+            style={{width: 1000, paddingLeft: '43%', paddingTop: 20}}
             component={renderRadioGroup}
           >
             <RadioButton value="1" label="yes" />
