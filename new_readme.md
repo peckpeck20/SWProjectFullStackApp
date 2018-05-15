@@ -6,6 +6,7 @@
 
 The back end uses MariaDB as our database and uses Node.js, Knex.js and Express.js to run the backend
 
+The following were learnt through trial and error, provided docs and stackoverflow.
 - Express.js to handle routing
 - Knex.js for parsing and using SQL commands on the database in the backend
 - Node.js is the runtime enviroment for our backend
@@ -25,6 +26,8 @@ Entry point for back end is index.js
 
 The front end is running React.js, React Redux, Material UI, React Table, React Router
 
+All below packages were learnt in front end / mobile programming and through random self learning and package docs. 
+Except redux where we learn from the Udemy course "Modern React with Redux" by Stephen Grider.
 - React.js is the main one that all the others extend. handles dynamic refreshing of the UI
 - Material UI defines the styling of components (including DatePicker)
 - React Table is a component that handles the rendering of data in a table with filtering and pagination
