@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-import "react-confirm-alert/src/react-confirm-alert.css";
 import {getAllComments, commentDelete} from "../actions/actions";
 
 class CommentIndex extends Component {

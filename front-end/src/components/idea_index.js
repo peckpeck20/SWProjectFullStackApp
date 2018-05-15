@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import "react-confirm-alert/src/react-confirm-alert.css";
 import { connect } from "react-redux";
 import ReactTable from "react-table";
 import "react-table/react-table.css";

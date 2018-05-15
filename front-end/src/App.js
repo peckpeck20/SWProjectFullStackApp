@@ -5,7 +5,7 @@ import "./App.css";
 import IdeaNew from "./components/IdeaNew";
 import IdeaIndex from "./components/idea_index";
 import CommentIndex from "./components/comment_index";
-import CommentNew from "./components/commentNew";
+import CommentNew from "./components/CommentNew";
 
 class App extends Component {
   render() {
